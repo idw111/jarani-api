@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    rdb:
+        image: mysql:8.0.17
+        command: ['--default-authentication-plugin=mysql_native_password']
+        volumes:
+            - './data/rdb:/var/lib/mysql:rw'
+        environment:
+            - 'MYSQL_DATABASE=templatedb'
+            - 'MYSQL_ROOT_PASSWORD=root'
+            - 'TZ=Asia/Seoul'
+        ports:
+            - '33069:3306'
